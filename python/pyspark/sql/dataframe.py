@@ -516,8 +516,7 @@ class DataFrame(object):
 
         .. note:: The default storage level has changed to C{MEMORY_AND_DISK} to match Scala in 2.0.
         """
-        self.is_cached = True
-        self._jdf.cache()
+        self.persist(storagelevel=StorageLevel.MEMORY_ONLY)
         return self
 
     @since(1.3)
